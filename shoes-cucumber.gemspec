@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Steve Klabnik"]
   s.email       = ["steve@steveklabnik.com"]
   s.homepage    = "http://github.com/shoes/shoes-cucumber"
-  s.summary     = %q{This project lets you test Shoes apps with Cucumber.}
-  s.description = %q{This project lets you test Shoes apps with Cucumber. It's mostly mocking stuff, see Shoes' tests for examples.}
+  s.summary     = %q{Use Cukes to test your Shoes!}
+  s.description = %q{Use Cukes to test your Shoes! Mostly mocking at this point, but eventually will let you test all aspects of Shoes apps.}
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
