@@ -1,16 +1,14 @@
+name_to_method_mapping = { "button" => "button",
+                           "paragraph" => "para" }
+
+
 Given /^a Shoes application$/ do
   @app = Shoes.app
 end
 
-When /^I append a button to the main window$/ do
+When /^I append a (.+) to the main window$/ do |element_name|
   @app.append do
-    button "hello"
-  end
-end
-
-When /^I append a paragraph to the main window$/ do
-  @app.append do
-    para "hello"
+    send(name_to_method_mapping[element_name], "hello")
   end
 end
 
