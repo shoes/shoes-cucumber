@@ -14,11 +14,8 @@ When /^I append a paragraph to the main window$/ do
   end
 end
 
-Then /^I should see a button$/ do
-  @app.elements.find{|e| e.class == Shoes::Button}.should_not be_nil
-end
-
-Then /^I should see a paragraph$/ do
-  @app.elements.find{|e| e.class == Shoes::Paragraph}.should_not be_nil
+Then /^I should see a (.+)$/ do |element_name|
+  class_name = Shoes.const_get(element_name.capitalize)
+  @app.elements.find{|e| e.kind_of? class_name}.should_not be_nil
 end
 
