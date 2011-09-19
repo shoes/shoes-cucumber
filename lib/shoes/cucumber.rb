@@ -1,4 +1,4 @@
 require "shoes/cucumber/version"
 require "shoes/mocks"
-require "shoes/cucumber/step_definitions/button_steps"
+require "shoes/cucumber/step_definitions/general_steps"
 
