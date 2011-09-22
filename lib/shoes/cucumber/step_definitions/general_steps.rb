@@ -19,6 +19,11 @@ Given /^a Shoes application$/ do
   @app = Shoes.app
 end
 
+Given /^a Shoes application in "([^"]+)"$/ do |file_path|
+  load './' + file_path
+  @app = Shoes.application
+end
+
 When /^I append an? ([^"]+) with text "([^"]+)" to the main window$/ do |element_name, text|
   @app.append do
     send(NAME_METHOD_MAPPING[element_name], text)
