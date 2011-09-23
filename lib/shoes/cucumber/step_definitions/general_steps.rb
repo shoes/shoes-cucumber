@@ -1,30 +1,17 @@
-NAME_METHOD_MAPPING = { "button" => "button",
-                        "paragraph" => "para",
-                        "link" => "link" }
-
-def singularize(string)
-  # for now it's easy enough, get rid of the s
-  if string[-1] == "s"
-    string.chop
-  else
-    string
-  end
-end
-
-def class_for_element(element_name)
-  Shoes.const_get(singularize(element_name).capitalize)
-end
+require_relative '../helper/helper.rb'
 
 Given /^a Shoes application$/ do
   @app = Shoes.app
 end
 
 Given /^a Shoes application in "([^"]+)"$/ do |file_path|
+  # load as I want a fresh file every time
   load './' + file_path
   @app = Shoes.application
 end
 
-When /^I append an? ([^"]+) with text "([^"]+)" to the main window$/ do |element_name, text|
+When /^I append an? ([^"]+) with text "([^"]+)" to the main window$/ do
+  |element_name, text|
   @app.append do
     send(NAME_METHOD_MAPPING[element_name], text)
   end
