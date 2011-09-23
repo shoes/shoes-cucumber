@@ -11,7 +11,7 @@ def singularize(string)
   end
 end
 
-def class_for_element(element_name)
+def class_for(element_name)
   Shoes.const_get(singularize(element_name).capitalize)
 end
 
